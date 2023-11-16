@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import useState from 'react';
+import {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -18,23 +18,33 @@ import {
 } from 'react-native';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
-
-
-
-function App() {
-const tasks =[
-  'Do laundry',
+/*
+'Do laundry',
   'Go to Gym',
   'Walk dog',
   'Submit assignment'
-]
+  */
+
+function App() {
+const [tasks, setTasks] = useState<string[]>(['Do laundry',
+                                                'Go to Gym',
+                                                'Walk dog',
+                                                'Submit assignment']);
+
+const addTask = (task: string) => {
+  setTasks([...tasks, task]);
+};
+
 
   return (
     <SafeAreaView>
       <ToDoList tasks = {tasks}/>
-      <ToDoForm/>
+      <ToDoForm addTask={addTask}/>
     </SafeAreaView>
   );
+
+  
+
 }
 
 const styles = StyleSheet.create({
