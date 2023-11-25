@@ -18,6 +18,8 @@ import {
 } from 'react-native';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
+import {NavigatorContainer} from '@react-navigation/react';
+import {createStackNavigator} from '@react-navigation/stack';
 /*
 'Do laundry',
   'Go to Gym',
@@ -26,21 +28,21 @@ import ToDoForm from './ToDoForm';
   */
 
 function App() {
-const [tasks, setTasks] = useState<string[]>(['Do laundry',
-                                                'Go to Gym',
-                                                'Walk dog',
-                                                'Submit assignment']);
 
+const Stack=createStackNavigator();
 const addTask = (task: string) => {
   setTasks([...tasks, task]);
 };
-
+const [tasks, setTasks] = useState<string[]>(['Do laundry', 'Go to Gym', 'Walk dog', 'Submit assignment']);
 
   return (
-    <SafeAreaView>
-      <ToDoList tasks = {tasks}/>
-      <ToDoForm addTask={addTask}/>
-    </SafeAreaView>
+  <View>
+  <Text>Test</Text>
+  </View>
+    <NavigatorContainer>
+    <Stack.Screen name="Home" component={HomeScreen}/>
+    <Stack.Screen name="About" component={AboutScreen}/>
+    </NavigatorContainer>
   );
 
   
