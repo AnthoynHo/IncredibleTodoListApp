@@ -10,7 +10,7 @@ import {
   TextInput,
   Button
 } from 'react-native';
-import DatePicker from 'react-native-datepicker';
+import DatePicker from 'react-native-date-picker';
 import MainLayout from '../layouts/MainLayout';
 
 export default function About({navigation}){

@@ -18,8 +18,10 @@ import {
 } from 'react-native';
 import ToDoList from './ToDoList';
 import ToDoForm from './ToDoForm';
-import {NavigatorContainer} from '@react-navigation/react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreen';
+import AboutScreen from './screens/AboutScreen';
 /*
 'Do laundry',
   'Go to Gym',
@@ -36,16 +38,15 @@ const addTask = (task: string) => {
 const [tasks, setTasks] = useState<string[]>(['Do laundry', 'Go to Gym', 'Walk dog', 'Submit assignment']);
 
   return (
-  <View>
-  <Text>Test</Text>
-  </View>
-    <NavigatorContainer>
-    <Stack.Screen name="Home" component={HomeScreen}/>
-    <Stack.Screen name="About" component={AboutScreen}/>
-    </NavigatorContainer>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 
-  
+
 
 }
 
